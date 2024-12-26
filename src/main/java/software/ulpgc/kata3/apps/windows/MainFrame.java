@@ -82,7 +82,7 @@ public class MainFrame extends JFrame {
     }
 
     public SelectStaticDialog selectStaticDialog() {
-        return selectStaticDialog();
+        return selectStaticDialog;
     }
 }
 
