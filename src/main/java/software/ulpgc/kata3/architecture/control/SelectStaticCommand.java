@@ -1,3 +1,9 @@
+package software.ulpgc.kata3.architecture.control;
+
+import software.ulpgc.kata3.architecture.view.BarchartDisplay;
+import software.ulpgc.kata3.architecture.io.BarchartLoader;
+import software.ulpgc.kata3.architecture.view.SelectStaticDialog;
+
 public class SelectStaticCommand implements Command{
     private final SelectStaticDialog dialog;
     private final BarchartLoader loader;

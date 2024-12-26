@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d484b297-aa03-45cd-ac5a-aeba96d69e8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +74,21 @@
       <option name="project" value="LOCAL" />
       <updated>1735215355772</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="created MainFrame">
+      <created>1735216057727</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735216057727</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit, create class Barchart, 3 interfaces and the class MockBarchartLoader" />
     <MESSAGE value="Create the interface command and 2 classes that implements the interface" />
     <MESSAGE value="correct an error in Barchart (method keySet was missing) and added JFreeBarchartAdapter and JFreeBarchartDisplay. The pom is changed to use JFree" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct an error in Barchart (method keySet was missing) and added JFreeBarchartAdapter and JFreeBarchartDisplay. The pom is changed to use JFree" />
+    <MESSAGE value="created MainFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="created MainFrame" />
   </component>
 </project>

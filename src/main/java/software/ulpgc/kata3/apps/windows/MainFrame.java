@@ -1,3 +1,9 @@
+package software.ulpgc.kata3.apps.windows;
+
+import software.ulpgc.kata3.architecture.view.BarchartDisplay;
+import software.ulpgc.kata3.architecture.control.Command;
+import software.ulpgc.kata3.architecture.view.SelectStaticDialog;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,28 +19,49 @@ public class MainFrame extends JFrame {
     private SelectStaticDialog selectStaticDialog;
 
     public MainFrame() throws HeadlessException {
-        this.commands = new HashMap<>();
-        this.setTitle("Kata 3 por mcv");
-        this.setSize(800, 600);
+        this.setTitle("Kata 3");
+        this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.add(BorderLayout.NORTH, toolbar());
-        this.add(barchartDisplay = staticPanel());
+        this.add(barchartDisplay = statisticPanel());
+        this.commands = new HashMap<>();
     }
 
-    private JFreeBarchartDisplay staticPanel() {
-        return new JFreeBarchartDisplay();
+    public void put(String name, Command command) {
+        commands.put(name, command);
     }
 
     private Component toolbar() {
-        JPanel jPanel = new JPanel();
-        jPanel.add(toggle());
-        jPanel.add(selector());
-        return jPanel;
+        JPanel panel = new JPanel();
+        panel.add(toggle());
+        panel.add(selector());
+        return panel;
+    }
+
+    private Component selector() {
+        JComboBox<String> comboBox = new JComboBox<>();
+        comboBox.addItem("Chart 1");
+        comboBox.addItem("Chart 2");
+        comboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() != ItemEvent.SELECTED) return;
+                commands.get("select").execute();
+            }
+        });
+        selectStaticDialog = new SelectStaticDialog() {
+            @Override
+            public int getSelection() {
+                return comboBox.getSelectedIndex();
+            }
+        };
+        return comboBox;
     }
 
     private JButton toggle() {
+
         JButton button = new JButton("toggle");
         button.addActionListener(new ActionListener() {
             @Override
@@ -45,40 +72,17 @@ public class MainFrame extends JFrame {
         return button;
     }
 
-    private Component selector() {
-        JComboBox<String> comboBox = new JComboBox<>();
-        comboBox.addItem("Chart 1");
-        comboBox.addItem("Chart 2");
-        comboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() != ItemEvent.SELECTED){
-                    return;
-                }
-                commands.get("select").execute();
-            }
-        });
-
-        selectStaticDialog = new SelectStaticDialog() {
-            @Override
-            public int getSelection() {
-                return comboBox.getSelectedIndex();
-            }
-        };
-        return comboBox;
+    private JFreeBarchartDisplay statisticPanel() {
+        return new JFreeBarchartDisplay();
     }
 
 
-
-    public void put(String name, Command command){
-        commands.put(name, command);
-    }
-
-    public BarchartDisplay barchartDisplay(){
+    public BarchartDisplay barchartDisplay() {
         return barchartDisplay;
     }
-    public SelectStaticDialog selectStaticDialog(){
-        return selectStaticDialog;
-    }
 
+    public SelectStaticDialog selectStaticDialog() {
+        return selectStaticDialog();
+    }
 }
+
