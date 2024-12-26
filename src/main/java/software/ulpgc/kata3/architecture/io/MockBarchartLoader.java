@@ -2,7 +2,7 @@ package software.ulpgc.kata3.architecture.io;
 
 import software.ulpgc.kata3.architecture.model.Barchart;
 
-public class MockBarchartLoader implements BarchartLoader{
+public class MockBarchartLoader implements BarchartLoader {
     @Override
     public Barchart load(int id) {
         return switch (id){

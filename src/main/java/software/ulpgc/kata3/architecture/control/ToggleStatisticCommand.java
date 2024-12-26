@@ -8,7 +8,7 @@ public class ToggleStatisticCommand implements Command{
     private final BarchartLoader loader;
     private int i = 0;
 
-    public ToggleStatisticCommand(BarchartDisplay display, BarchartLoader loader) {
+    public ToggleStatisticCommand(BarchartLoader loader, BarchartDisplay display) {
         this.display = display;
         this.loader = loader;
     }
