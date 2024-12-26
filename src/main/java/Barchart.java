@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Barchart {
     private final Map<String, Integer> count;
@@ -33,5 +34,8 @@ public class Barchart {
 
     public void put(String category, int value){
         count.put(category, value);
+    }
+    public Set<String> keySet(){
+        return count.keySet();
     }
 }
